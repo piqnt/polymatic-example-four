@@ -1,0 +1,115 @@
+/* The hud sits over the stage canvas. #ui-root turns pointer events off, so
+   anything here that should be pressable turns them back on. */
+
+/* Both hud readouts are buttons that draw nothing of their own: they position
+   their contents and catch the press, and that is all. This also resets the
+   chrome a <button> brings with it - its background, border, padding and font. */
+.wrapper {
+  position: absolute;
+  pointer-events: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.status {
+  top: calc(10px + env(safe-area-inset-top, 0px));
+  left: calc(12px + env(safe-area-inset-left, 0px));
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: #333;
+  font: 600 18px/1.35 var(--four-font);
+  letter-spacing: 0.02em;
+}
+
+.statusLine {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* a count and the icon that says what it counts */
+.stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.muted {
+  opacity: 0.6;
+  font-weight: 500;
+}
+
+.progress {
+  top: calc(10px + env(safe-area-inset-top, 0px));
+  right: calc(12px + env(safe-area-inset-right, 0px));
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.bar {
+  height: 14px;
+  min-width: 14px;
+  border-radius: 7px;
+  /* the bars grow and shrink as the mission is worked through; the tween is
+     what the sprite bars used to do with stage's own tween */
+  transition: width 120ms linear;
+  box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.slotText {
+  font-size: 18px;
+  font-weight: 700;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 1);
+}
+
+/* The board is filling up: how many more vertices until it is over. */
+.warning {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font: 700 64px/1 var(--four-font);
+  color: rgba(255, 42, 42, 0.85);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+/* the badge in the corner of the board; the chooser it opens is a modal now
+   (shell/ModeModal), so nothing is stacked above it here any more */
+.modeControl {
+  position: absolute;
+  bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  right: calc(14px + env(safe-area-inset-right, 0px));
+  pointer-events: auto;
+}
+
+.badge {
+  display: flex;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #333;
+  font-size: 34px;
+  line-height: 1;
+  cursor: pointer;
+}

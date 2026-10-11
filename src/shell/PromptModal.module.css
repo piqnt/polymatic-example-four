@@ -1,0 +1,51 @@
+.backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(6, 9, 16, 0.45);
+}
+
+.panel {
+  min-width: 200px;
+  padding: 22px 26px;
+  border-radius: 14px;
+  background: rgba(12, 16, 26, 0.92);
+  color: #f2f4f8;
+  font: 600 15px/1.5 var(--four-font);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  white-space: pre-line;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.action {
+  min-width: 72px;
+  padding: 9px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #37c871;
+  color: #08110b;
+  font: 700 14px/1 var(--four-font);
+  cursor: pointer;
+}
+
+.action:hover {
+  filter: brightness(1.1);
+}

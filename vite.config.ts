@@ -1,0 +1,7 @@
+import preact from "@preact/preset-vite";
+
+export default {
+  base: "/polymatic-example-four/",
+  plugins: [preact()],
+  build: {},
+};
